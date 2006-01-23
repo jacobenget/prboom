@@ -1,7 +1,6 @@
 /* Emacs style mode select   -*- C++ -*- 
  *-----------------------------------------------------------------------------
  *
- * $Id: i_soundsrv.h,v 1.1 2000/09/20 09:34:33 figgi Exp $
  *
  *  Sound server for LxDoom, based on the sound server released with the 
  *   original linuxdoom sources.
@@ -34,13 +33,8 @@ typedef struct {
 } snd_pass_t;
 
 /* I_GetLinkNum - returns linked sound number */
-// Proff - added __inline for VisualC
-#ifdef _MSC_VER
-__inline
-#else
-inline
-#endif
-static signed int I_GetLinkNum(unsigned int i)
+
+inline static signed int I_GetLinkNum(unsigned int i)
 {
   return  ((S_sfx[i].link == NULL) ? -1 :
 	    ((S_sfx[i].link - S_sfx)/sizeof(sfxinfo_t)));

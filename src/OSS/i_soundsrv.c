@@ -1,7 +1,6 @@
 /* Emacs style mode select   -*- C++ -*- 
  *-----------------------------------------------------------------------------
  *
- * $Id: i_soundsrv.c,v 1.1 2000/09/20 09:34:33 figgi Exp $
  *
  *  Sound server for LxDoom, based on the sound server released with the 
  *   original linuxdoom sources.
@@ -30,9 +29,6 @@
  *  output functions at regular intervals.
  *-----------------------------------------------------------------------------
  */
-
-static const char
-rcsid[] = "$Id: i_soundsrv.c,v 1.1 2000/09/20 09:34:33 figgi Exp $";
 
 #include <stdio.h>
 #include <stddef.h>

@@ -1,7 +1,6 @@
 /* Emacs style mode select   -*- C++ -*- 
  *-----------------------------------------------------------------------------
  *
- * $Id: i_system.c,v 1.1 2000/09/20 09:34:34 figgi Exp $
  *
  *  LxDoom, a Doom port for Linux/Unix
  *  based on BOOM, a modified and improved DOOM engine
@@ -30,9 +29,6 @@
  *
  *-----------------------------------------------------------------------------
  */
-
-static const char
-rcsid[] = "$Id: i_system.c,v 1.1 2000/09/20 09:34:34 figgi Exp $";
 
 #include <stdio.h>
 
