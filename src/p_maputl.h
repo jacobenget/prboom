@@ -1,4 +1,4 @@
-/* Emacs style mode select   -*- C++ -*- 
+/* Emacs style mode select   -*- C++ -*-
  *-----------------------------------------------------------------------------
  *
  *
@@ -8,7 +8,7 @@
  *  id Software, Chi Hoang, Lee Killough, Jim Flynn, Rand Phares, Ty Halderman
  *  Copyright (C) 1999-2000 by
  *  Jess Haas, Nicolas Kalkhof, Colin Phipps, Florian Schulze
- *  
+ *
  *  This program is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU General Public License
  *  as published by the Free Software Foundation; either version 2
@@ -21,7 +21,7 @@
  *
  *  You should have received a copy of the GNU General Public License
  *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 
+ *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
  *  02111-1307, USA.
  *
  * DESCRIPTION:
@@ -63,16 +63,10 @@ typedef struct {
 
 typedef boolean (*traverser_t)(intercept_t *in);
 
-#ifdef __GNUC__
-#define CONSTFUNC const
-#else
-#define CONSTFUNC
-#endif
-
 fixed_t CONSTFUNC P_AproxDistance (fixed_t dx, fixed_t dy);
 int     CONSTFUNC P_PointOnLineSide (fixed_t x, fixed_t y, const line_t *line);
-int     CONSTFUNC P_PointOnDivlineSide (fixed_t x, fixed_t y, 
-					const divline_t *line);
+int     CONSTFUNC P_PointOnDivlineSide (fixed_t x, fixed_t y,
+          const divline_t *line);
 int     CONSTFUNC P_BoxOnLineSide (const fixed_t *tmbox, const line_t *ld);
 fixed_t CONSTFUNC P_InterceptVector (const divline_t *v2, const divline_t *v1);
 

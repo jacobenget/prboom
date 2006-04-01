@@ -1,4 +1,4 @@
-/* Emacs style mode select   -*- C++ -*- 
+/* Emacs style mode select   -*- C++ -*-
  *-----------------------------------------------------------------------------
  *
  *
@@ -8,7 +8,7 @@
  *  id Software, Chi Hoang, Lee Killough, Jim Flynn, Rand Phares, Ty Halderman
  *  Copyright (C) 1999-2000 by
  *  Jess Haas, Nicolas Kalkhof, Colin Phipps, Florian Schulze
- *  
+ *
  *  This program is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU General Public License
  *  as published by the Free Software Foundation; either version 2
@@ -21,7 +21,7 @@
  *
  *  You should have received a copy of the GNU General Public License
  *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 
+ *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
  *  02111-1307, USA.
  *
  * DESCRIPTION:
@@ -32,7 +32,7 @@
 #ifndef __M_FIXED__
 #define __M_FIXED__
 
-#include "config.h"
+#include "../config.h"
 #include "doomtype.h"
 
 /*
@@ -67,9 +67,9 @@ __inline static int D_abs(int x)
 # else /* I386_ASM */
 inline static const int D_abs(x)
 {
-	fixed_t _t = (x),_s;
-	_s = _t >> (8*sizeof _t-1);
-	return (_t^_s)-_s;
+  fixed_t _t = (x),_s;
+  _s = _t >> (8*sizeof _t-1);
+  return (_t^_s)-_s;
 }
 # endif /* I386_ASM */
 #else /* _MSC_VER */
@@ -123,7 +123,7 @@ static const fixed_t FixedMul(fixed_t a, fixed_t b)
 /* CPhipps - made __inline__ to inline, as specified in the gcc docs
  * Also made const */
 
-inline static const fixed_t FixedMul(fixed_t a, fixed_t b)
+inline static CONSTFUNC fixed_t FixedMul(fixed_t a, fixed_t b)
 {
   return (fixed_t)((int_64_t) a*b >> FRACBITS);
 }
@@ -145,7 +145,7 @@ __inline static fixed_t FixedDiv(fixed_t a, fixed_t b)
     __asm
     {
         mov  eax,a
-        mov  ebx,b        
+        mov  ebx,b
         mov  edx,eax
         shl  eax,16     // proff 11/06/98: Changed from sal to shl, I think
                         // this is better
@@ -163,7 +163,7 @@ __inline static fixed_t FixedDiv(fixed_t a, fixed_t b)
  * Replaced inline asm with Julian's version for Eternity dated 6/7/2001
  */
 inline
-static const fixed_t FixedDiv(fixed_t a, fixed_t b)
+static CONSTFUNC fixed_t FixedDiv(fixed_t a, fixed_t b)
 {
   if (D_abs(a) >> 14 < D_abs(b))
     {
@@ -186,7 +186,7 @@ static const fixed_t FixedDiv(fixed_t a, fixed_t b)
 /* CPhipps - made __inline__ to inline, as specified in the gcc docs
  * Also made const */
 
-inline static const fixed_t FixedDiv(fixed_t a, fixed_t b)
+inline static CONSTFUNC fixed_t FixedDiv(fixed_t a, fixed_t b)
 {
   return (D_abs(a)>>14) >= D_abs(b) ? ((a^b)>>31) ^ INT_MAX :
     (fixed_t)(((int_64_t) a << FRACBITS) / b);
@@ -194,16 +194,16 @@ inline static const fixed_t FixedDiv(fixed_t a, fixed_t b)
 
 #endif /* I386_ASM */
 
-/* CPhipps - 
+/* CPhipps -
  * FixedMod - returns a % b, guaranteeing 0<=a<b
  * (notice that the C standard for % does not guarantee this)
  */
 
-inline static const fixed_t FixedMod(fixed_t a, fixed_t b)
+inline static CONSTFUNC fixed_t FixedMod(fixed_t a, fixed_t b)
 {
   if (b & (b-1)) {
     fixed_t r = a % b;
-    return ((r<0) ? r+b : r);  
+    return ((r<0) ? r+b : r);
   } else
     return (a & (b-1));
 }
